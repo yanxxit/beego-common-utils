@@ -12,3 +12,11 @@
 
 # Project-local glide cache, RE: https://github.com/Masterminds/glide/issues/736
 .glide/
+
+*.iml
+
+modules.xml
+GOPATH__beego_common_utils_.xml
+
+misc.xml
+vcs.xml
