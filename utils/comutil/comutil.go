@@ -6,7 +6,7 @@ import (
 	"beego-common-utils/utils/timeutil"
 	"bytes"
 	"strconv"
-	"fmt"
+	"github.com/shawflying/beego-common-utils/utils/comutil"
 )
 
 //interface 转换为string类型
@@ -78,7 +78,27 @@ func InterfaceTo2(data interface{}) (interface{}) {
 	return params
 }
 
-func MapToJSON() {
-	b, _ := json.Marshal(fail)
-	fmt.Println("JSON.stringify:" + string(b))
+//map 转换为 json string  JSON.stringify
+//{"data":{"age":12,"name":"inter"},"detail":{"Admin":"admin","Pwd":"12312312"},"info":"","status":0}
+func MapToJsonString(data interface{}) string {
+	b, _ := json.Marshal(data)
+	return string(b)
+}
+
+//map 转换为json format
+//{
+//	"data": {
+//		"age": 12,
+//		"name": "inter"
+//	},
+//	"detail": {
+//		"Admin": "admin",
+//		"Pwd": "12312312"
+//	},
+//	"info": "",
+//	"status": 0
+//}
+func MapToJsonFormat(data interface{}) string {
+	content, _ := json.MarshalIndent(data, "", "  ")
+	return string(content)
 }
