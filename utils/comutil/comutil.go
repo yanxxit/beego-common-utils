@@ -6,6 +6,7 @@ import (
 	"beego-common-utils/utils/timeutil"
 	"bytes"
 	"strconv"
+	"fmt"
 )
 
 //interface 转换为string类型
@@ -75,4 +76,9 @@ func InterfaceTo2(data interface{}) (interface{}) {
 	}
 
 	return params
+}
+
+func MapToJSON() {
+	b, _ := json.Marshal(fail)
+	fmt.Println("JSON.stringify:" + string(b))
 }

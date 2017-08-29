@@ -61,8 +61,11 @@ func (this *CommonController) ResSuccess(data interface{}) {
 
 //失败
 func (this *CommonController) ResFail(desc string) {
-	logger.Info(" ResData:", desc)
-	this.Data["json"] = restful.Fail(desc)
+	var fail map[string]interface{} = make(map[string]interface{})
+	fail["status"] = 0
+	fail["info"] = ""
+	fail["data"] = desc
+	this.Data["json"] = fail
 	this.ServeJSON()
 	this.StopRun()
 }
