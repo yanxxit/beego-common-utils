@@ -5,6 +5,7 @@ import (
 	"strings"
 	"fmt"
 	"github.com/astaxie/beego"
+	"beego-common-utils/open"
 )
 
 func init() {
@@ -13,8 +14,6 @@ func init() {
 	logs.Async()
 	logs.SetLogger(logs.AdapterFile, `{"filename":"/logs/cache-interface.log","level":7,"maxlines":0,"maxsize":0,"daily":true,"maxdays":30}`)
 }
-
-var Uuid = ""
 
 // Alert logs a message at alert level.
 func Alert(f interface{}, v ...interface{}) {
@@ -88,5 +87,5 @@ func formatLog(f interface{}, v ...interface{}) string {
 		}
 		msg += strings.Repeat(" %v", len(v))
 	}
-	return fmt.Sprintf(Uuid+" "+msg, v...)
+	return fmt.Sprintf(open.Uuid+" "+msg, v...)
 }

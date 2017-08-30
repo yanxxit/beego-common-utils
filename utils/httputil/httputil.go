@@ -13,12 +13,6 @@ import (
 var HttpCT time.Duration
 var HttpRWT time.Duration
 
-var Cookie string //cookie
-
-var Header map[string](string) //header
-
-var Token string//token
-
 func init() {
 	HttpCT = 5 * time.Second
 	HttpRWT = 5 * time.Second

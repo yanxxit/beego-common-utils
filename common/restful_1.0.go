@@ -34,7 +34,7 @@ func (this *CommonController) ResFail(desc string) {
 	fail["status"] = 0
 	fail["info"] = ""
 	fail["data"] = desc
-	logger.Info(" ResData:", comutil.MapToJsonString(desc))
+	logger.Info(" ResData:", comutil.MapToJsonString(fail))
 	this.Data["json"] = fail
 	this.ServeJSON()
 	this.StopRun()
