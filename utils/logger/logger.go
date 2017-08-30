@@ -5,7 +5,7 @@ import (
 	"strings"
 	"fmt"
 	"github.com/astaxie/beego"
-	"beego-common-utils/open"
+	"github.com/shawflying/beego-common-utils/open"
 )
 
 func init() {
