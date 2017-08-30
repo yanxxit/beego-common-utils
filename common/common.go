@@ -2,8 +2,8 @@ package common
 
 import (
 	"github.com/astaxie/beego"
-	"beego-common-utils/utils/logger"
-	"beego-common-utils/utils/comutil"
+	"github.com/shawflying/beego-common-utils/utils/logger"
+	"github.com/shawflying/beego-common-utils/utils/comutil"
 )
 
 type CommonController struct {

@@ -1,8 +1,8 @@
 package common
 
 import (
-	"beego-common-utils/utils/logger"
-	"beego-common-utils/utils/comutil"
+	"github.com/shawflying/beego-common-utils/utils/logger"
+	"github.com/shawflying/beego-common-utils/utils/comutil"
 )
 
 func (this *CommonController) ResV2Result(error_code int, error_msg string, data interface{}) {

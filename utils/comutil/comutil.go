@@ -3,7 +3,7 @@ package comutil
 import (
 	"encoding/json"
 	"time"
-	"beego-common-utils/utils/timeutil"
+	"github.com/shawflying/beego-common-utils/utils/timeutil"
 	"bytes"
 	"strconv"
 )

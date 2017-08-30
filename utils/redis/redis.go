@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/go-redis/redis"
 	"time"
-	"beego-common-utils/utils/logger"
+	"github.com/shawflying/beego-common-utils/utils/logger"
 	"github.com/astaxie/beego"
 	"strconv"
 )

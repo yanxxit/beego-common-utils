@@ -3,8 +3,8 @@ package httputil
 import (
 	"github.com/astaxie/beego/httplib"
 	"time"
-	"beego-common-utils/utils/comutil"
-	"beego-common-utils/utils/logger"
+	"github.com/shawflying/beego-common-utils/utils/comutil"
+	"github.com/shawflying/beego-common-utils/utils/logger"
 	"encoding/json"
 )
 
