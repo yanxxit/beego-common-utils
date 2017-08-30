@@ -6,7 +6,6 @@ import (
 	"beego-common-utils/utils/timeutil"
 	"bytes"
 	"strconv"
-	"github.com/shawflying/beego-common-utils/utils/comutil"
 )
 
 //interface 转换为string类型
