@@ -3,6 +3,7 @@ package common
 import (
 	"github.com/shawflying/beego-common-utils/utils/logger"
 	"github.com/shawflying/beego-common-utils/utils/comutil"
+	"github.com/shawflying/beego-common-utils/open"
 )
 
 func (this *CommonController) ResV2Result(error_code int, error_msg string, data interface{}) {
@@ -10,7 +11,10 @@ func (this *CommonController) ResV2Result(error_code int, error_msg string, data
 	result["error_code"] = error_code
 	result["error_msg"] = error_msg
 	result["data"] = data
-	logger.Info(" ResData:", comutil.MapToJsonString(result))
+	if open.IsOpenResponseLog {
+		logger.Info(" ResData:", comutil.MapToJsonString(result))
+	}
+
 	this.Data["json"] = result
 	this.ServeJSON()
 	this.StopRun()
@@ -22,7 +26,10 @@ func (this *CommonController) ResV2Success(data interface{}) {
 	success["error_code"] = 200
 	success["error_msg"] = ""
 	success["data"] = data
-	logger.Info(" ResData:", comutil.MapToJsonString(success))
+	if open.IsOpenResponseLog {
+		logger.Info(" ResData:", comutil.MapToJsonString(success))
+	}
+
 	this.Data["json"] = success
 	this.ServeJSON()
 	this.StopRun()
@@ -34,7 +41,10 @@ func (this *CommonController) ResV2Fail(desc string) {
 	fail["error_code"] = 0
 	fail["error_msg"] = ""
 	fail["data"] = desc
-	logger.Info(" ResData:", comutil.MapToJsonString(desc))
+	if open.IsOpenResponseLog {
+		logger.Info(" ResData:", comutil.MapToJsonString(desc))
+	}
+
 	this.Data["json"] = fail
 	this.ServeJSON()
 	this.StopRun()

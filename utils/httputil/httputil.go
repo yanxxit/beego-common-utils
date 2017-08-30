@@ -72,8 +72,6 @@ func Put(reqUrl string, params interface{}) (content []byte, err error) {
 	start := time.Now()
 	req, err := httplib.Put(reqUrl).SetTimeout(HttpCT, HttpRWT).JSONBody(params)
 	data, err := req.Bytes()
-	strs, _ := req.String()
-	logger.Info("request-put-string: ", strs, err)
 	logger.Info("request-put-data: "+string(data), err)
 	logger.Info("request-put-response-time:", getResponseTime(start))
 	return data, err
