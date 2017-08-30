@@ -87,5 +87,5 @@ func formatLog(f interface{}, v ...interface{}) string {
 		}
 		msg += strings.Repeat(" %v", len(v))
 	}
-	return fmt.Sprintf(open.Uuid+" "+msg, v...)
+	return fmt.Sprintf(open.Cookie+" "+msg, v...)
 }
