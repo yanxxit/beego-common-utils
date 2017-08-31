@@ -28,7 +28,7 @@ func Get(reqUrl string) (content []byte, err error) {
 	logger.Info("request-get-url: " + reqUrl)
 	req := httplib.Get(reqUrl).SetTimeout(HttpCT, HttpRWT)
 	data, err := req.Bytes()
-	logger.Info("request-get-data: "+string(data), err)
+	logger.Info("request-get-data: "+comutil.TransInterfaceToString(data), err)
 	logger.Info("request-get-response-time:", getResponseTime(start))
 	return data, err
 }
@@ -36,10 +36,10 @@ func Get(reqUrl string) (content []byte, err error) {
 func Post(reqUrl string, params interface{}) (content []byte, err error) {
 	start := time.Now()
 	logger.Info("request-post-url: " + reqUrl)
-	logger.Info("request-post-params: ", params)
+	logger.Info("request-post-params: ", comutil.TransInterfaceToString(params))
 	req, err := httplib.Post(reqUrl).Header("Content-Type", "application/json").SetTimeout(HttpCT, HttpRWT).JSONBody(params)
 	data, err := req.Bytes()
-	logger.Info("request-post-data: "+string(data), err)
+	logger.Info("request-post-data: "+comutil.TransInterfaceToString(data), err)
 	logger.Info("request-post-response-time:", getResponseTime(start))
 	return data, err
 }
@@ -47,7 +47,7 @@ func Post(reqUrl string, params interface{}) (content []byte, err error) {
 func PostForm(reqUrl string, params interface{}) (content []byte, err error) {
 	start := time.Now()
 	logger.Info("request-postForm-url: " + reqUrl)
-	logger.Info("request-postForm-params: ", params)
+	logger.Info("request-postForm-params: ", comutil.TransInterfaceToString(params))
 
 	byts, err := json.Marshal(params)
 	if err != nil {
@@ -61,18 +61,18 @@ func PostForm(reqUrl string, params interface{}) (content []byte, err error) {
 		req.Param(k, comutil.TransInterfaceToString(v))
 	}
 	data, err := req.Bytes()
-	logger.Info("request-postForm-data: "+string(data), err)
+	logger.Info("request-postForm-data: "+comutil.TransInterfaceToString(data), err)
 	logger.Info("request-postForm-response-time:", getResponseTime(start))
 	return data, err
 }
 
 func Put(reqUrl string, params interface{}) (content []byte, err error) {
 	logger.Info("request-put-url: " + reqUrl)
-	logger.Info("request-put-params: ", params)
+	logger.Info("request-put-params: ", comutil.TransInterfaceToString(params))
 	start := time.Now()
 	req, err := httplib.Put(reqUrl).SetTimeout(HttpCT, HttpRWT).JSONBody(params)
 	data, err := req.Bytes()
-	logger.Info("request-put-data: "+string(data), err)
+	logger.Info("request-put-data: "+comutil.TransInterfaceToString(data), err)
 	logger.Info("request-put-response-time:", getResponseTime(start))
 	return data, err
 }

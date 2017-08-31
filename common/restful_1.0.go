@@ -12,7 +12,7 @@ func (this *CommonController) ResResult(status int, info string, data interface{
 	result["info"] = info
 	result["data"] = data
 	if open.IsOpenResponseLog {
-		logger.Info(" ResData:", comutil.MapToJsonString(result))
+		logger.Info(" ResData:", comutil.TransInterfaceToString(result))
 	}
 	this.Data["json"] = result
 	this.ServeJSON()
@@ -27,7 +27,7 @@ func (this *CommonController) ResSuccess(data interface{}) {
 	success["data"] = data
 
 	if open.IsOpenResponseLog {
-		logger.Info(" ResData:", comutil.MapToJsonString(success))
+		logger.Info(" ResData:", comutil.TransInterfaceToString(success))
 	}
 	this.Data["json"] = success
 	this.ServeJSON()
@@ -42,7 +42,7 @@ func (this *CommonController) ResFail(desc string) {
 	fail["data"] = desc
 
 	if open.IsOpenResponseLog {
-		logger.Info(" ResData:", comutil.MapToJsonString(fail))
+		logger.Info(" ResData:", comutil.TransInterfaceToString(fail))
 	}
 	this.Data["json"] = fail
 	this.ServeJSON()

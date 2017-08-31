@@ -12,7 +12,7 @@ func (this *CommonController) ResV2Result(error_code int, error_msg string, data
 	result["error_msg"] = error_msg
 	result["data"] = data
 	if open.IsOpenResponseLog {
-		logger.Info(" ResData:", comutil.MapToJsonString(result))
+		logger.Info(" ResData:", comutil.TransInterfaceToString(result))
 	}
 
 	this.Data["json"] = result
@@ -27,7 +27,7 @@ func (this *CommonController) ResV2Success(data interface{}) {
 	success["error_msg"] = ""
 	success["data"] = data
 	if open.IsOpenResponseLog {
-		logger.Info(" ResData:", comutil.MapToJsonString(success))
+		logger.Info(" ResData:", comutil.TransInterfaceToString(success))
 	}
 
 	this.Data["json"] = success
@@ -42,7 +42,7 @@ func (this *CommonController) ResV2Fail(desc string) {
 	fail["error_msg"] = ""
 	fail["data"] = desc
 	if open.IsOpenResponseLog {
-		logger.Info(" ResData:", comutil.MapToJsonString(desc))
+		logger.Info(" ResData:", comutil.TransInterfaceToString(desc))
 	}
 
 	this.Data["json"] = fail

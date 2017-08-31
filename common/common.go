@@ -24,7 +24,7 @@ func (this *CommonController) GetCookieId() string {
 //通用json数据响应
 func (this *CommonController) ResJson(data interface{}) {
 	if open.IsOpenResponseLog {
-		logger.Info(" ResData:", comutil.InterfaceToJSON(data))
+		logger.Info(" ResData:", comutil.TransInterfaceToString(data))
 	}
 	this.Data["json"] = comutil.InterfaceTo2(data)
 	this.ServeJSON()
