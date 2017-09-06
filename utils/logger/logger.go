@@ -12,7 +12,7 @@ func init() {
 	logs.SetLogger("console")
 	beego.SetLogFuncCall(true)
 	logs.Async()
-	logs.SetLogger(logs.AdapterFile, `{"filename":"/logs/cache-interface.log","level":7,"maxlines":0,"maxsize":0,"daily":true,"maxdays":30}`)
+	logs.SetLogger(logs.AdapterFile, `{"filename":"./logs/cache-interface.log","level":7,"maxlines":0,"maxsize":0,"daily":true,"maxdays":30}`)
 }
 
 // Alert logs a message at alert level.
