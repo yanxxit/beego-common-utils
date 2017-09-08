@@ -7,6 +7,7 @@ import (
 )
 
 func TestRandomString(t *testing.T) {
+	fmt.Println(time.Now().Unix())
 	for i := 0; i < 10; i++ {
 		start := time.Now()
 		fmt.Println("生成随机数：" + RandomString(3))
