@@ -21,7 +21,7 @@ var myJSON = `{
 }`
 
 type ErrorCode struct {
-	Status int `db:"status" json:"status"`
+	Status int         `db:"status" json:"status"`
 	Data   interface{} `db:"data" json:"data"`
 }
 
@@ -50,4 +50,8 @@ func TestTransInterfaceToString(t *testing.T) {
 	myStruct2.Status = 200
 	myStruct2.Data = params
 	fmt.Println("struct:" + TransInterfaceToString(myStruct2))
+}
+
+func TestMD5Encode(t *testing.T) {
+	t.Log(MD5Encode("张三"))
 }

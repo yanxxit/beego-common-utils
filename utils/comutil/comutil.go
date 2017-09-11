@@ -6,6 +6,8 @@ import (
 	"github.com/shawflying/beego-common-utils/utils/timeutil"
 	"bytes"
 	"strconv"
+	"crypto/md5"
+	"fmt"
 )
 
 //interface 转换为string类型
@@ -73,4 +75,12 @@ func InterfaceTo2(data interface{}) (interface{}) {
 func MapToJsonFormat(data interface{}) string {
 	content, _ := json.MarshalIndent(data, "", "  ")
 	return string(content)
+}
+
+//md5 string 转换为MD5
+func MD5Encode(value string) string {
+	data := []byte(value)
+	has := md5.Sum(data)
+	md5str1 := fmt.Sprintf("%x", has) //将[]byte转成16进制
+	return md5str1
 }
