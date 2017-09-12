@@ -53,5 +53,36 @@ func TestTransInterfaceToString(t *testing.T) {
 }
 
 func TestMD5Encode(t *testing.T) {
-	t.Log(MD5Encode("张三"))
+	fmt.Println(MD5Encode("张三"))
+}
+
+
+var mystruct struct{
+
+}
+
+func TestIsEmpty(t *testing.T) {
+	fmt.Println("string判断是否为空：", IsEmpty(""))
+	fmt.Println("string判断是否为空：", IsEmpty("null"))
+	fmt.Println("string判断是否为空：", IsEmpty("undefined"))
+
+	fmt.Println("byte判断是否为空：", IsEmpty('t'))
+	fmt.Println("[]byte判断是否为空：", IsEmpty([]byte("")))
+	fmt.Println("[]byte判断是否为空：", IsEmpty([]byte("null")))
+	fmt.Println("[]byte判断是否为空：", IsEmpty([]byte("1")))
+
+	mymap := make(map[interface{}]interface{})
+	fmt.Println("mymap值初始值：", mymap, mymap == nil, len(mymap))
+	fmt.Println("map判断是否为空：", IsEmpty(mymap))
+	mymap["data"] = "ok"
+	mymap["status"] = 200
+	fmt.Println("mymap赋值后：", mymap, mymap == nil, len(mymap))
+	fmt.Println("map判断是否为空：", IsEmpty(mymap))
+
+	//struct
+
+	//interface
+
+	//number
+
 }

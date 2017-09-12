@@ -88,10 +88,23 @@ func MD5Encode(value string) string {
 //判断数据是否为空
 //1. 为空的口径是什么
 //2. 判断那些类型
+//1. string 
+//2. []byte
+//3. map
+//
+//注：数字类型，bool 都为非空
 func IsEmpty(data interface{}) bool {
 	empty := false
 	str := "";
 	switch v := data.(type) {
+
+	case bool:
+		empty = false
+
+	case int, int8, int16, int32, int64, uint, uint8, uint16, uint32, uint64, uintptr:
+		empty = false
+	case float32, float64, complex64, complex128:
+		empty = false
 	case string:
 		if len(v) == 0 || v == "null" || v == "" || v == "undefined" {
 			empty = true
@@ -99,6 +112,10 @@ func IsEmpty(data interface{}) bool {
 	case []byte:
 		str = string(v)
 		if len(str) == 0 || str == "null" || str == "" || str == "undefined" {
+			empty = true
+		}
+	case map[interface{}]interface{}:
+		if len(v) == 0 {
 			empty = true
 		}
 	default:
