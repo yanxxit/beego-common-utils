@@ -84,3 +84,32 @@ func MD5Encode(value string) string {
 	md5str1 := fmt.Sprintf("%x", has) //将[]byte转成16进制
 	return md5str1
 }
+
+//判断数据是否为空
+//1. 为空的口径是什么
+//2. 判断那些类型
+func IsEmpty(data interface{}) bool {
+	empty := false
+	str := "";
+	switch v := data.(type) {
+	case string:
+		if len(v) == 0 || v == "null" || v == "" || v == "undefined" {
+			empty = true
+		}
+	case []byte:
+		str = string(v)
+		if len(str) == 0 || str == "null" || str == "" || str == "undefined" {
+			empty = true
+		}
+	default:
+		t, err := json.Marshal(data)
+		if err != nil {
+			str = ""
+		}
+		str = string(t)
+		if len(str) == 0 || str == "null" || str == "" || str == "undefined" {
+			empty = true
+		}
+	}
+	return empty
+}
