@@ -34,3 +34,20 @@ func TestFormatName(t *testing.T) {
 	fmt.Println(FormatName("周大装"))
 	fmt.Println(FormatName("上海电信"))
 }
+
+func TestOperatorsMap(t *testing.T) {
+	fmt.Println(OperatorsMap("17711"))
+	fmt.Println(OperatorsMap("17711") == "")
+	dn := "17721021494"
+	fmt.Println(dn[0:3])
+	fmt.Println(dn[0:4])
+
+}
+
+func TestOperators(t *testing.T) {
+	dn := "17721021494"
+	fmt.Println(dn[0:3])
+	fmt.Println("设备号运营商：" + Operators(dn))
+	fmt.Println("设备号运营商：" + Operators("15806111230"))
+	fmt.Println("设备号运营商：" + Operators("17317711111"))
+}
