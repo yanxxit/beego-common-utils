@@ -38,7 +38,7 @@ func FormatName(str string) string {
 
 //判断设备号运营商
 func Operators(mobile string) string {
-	if IsMobile(mobile) {
+	if !IsMobile(mobile) {
 		return "非手机号码"
 	}
 	if OperatorsMap(mobile[0:3]) != "" {
